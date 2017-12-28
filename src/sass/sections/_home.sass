@@ -1,0 +1,126 @@
+@include font-face(Gotham, '../fonts/HJGothamMedium', 500, normal, otf woff2 woff)
+@include font-face(Gotham, '../fonts/HJGothamRoundBold', 600, normal, otf woff2 woff)
+
+@include keyframes(rolling)
+	0%
+		@include prefix(transform, rotate(0deg))
+	40%
+		@include prefix(transform, rotate(-10deg))
+	80%
+		@include prefix(transform, rotate(0deg))
+	100%
+		@include prefix(transform, rotate(0deg))
+
+
+@include keyframes(waving)
+	0%
+		@include bgImage('../images/bg/bg-full.jpg')
+	16%
+		@include bgImage('../images/bg/bg-wave-1.png')
+	32%
+		@include bgImage('../images/bg/bg-wave-2.png')
+	48%
+		@include bgImage('../images/bg/bg-wave-3.png')
+	64%
+		@include bgImage('../images/bg/bg-wave-2.png')
+	80%
+		@include bgImage('../images/bg/bg-wave-1.png')
+	100%
+		@include bgImage('../images/bg/bg-full.jpg')
+
+html, body
+	width: 100vw
+	height: 100vh
+	margin: 0
+	overflow: hidden
+	color: $color-primary
+	font:
+		family: 'Gotham'
+		weight: 600
+		size: $font-sm
+
+body
+	@include bgImage('../images/bg/bg-sand.jpg')
+
+.inner-body
+	width: 100vw
+	height: 100vh
+	padding-top: $logoHeight + 3vh
+	@include animation(waving, 10s)
+
+img
+	width: auto
+	height: 100%
+
+.logo
+	width: auto
+	height: $logoHeight
+	position: absolute
+	top: 0
+	right: 0
+
+.crab
+	height: 85vh
+	width: auto
+	position: absolute
+	top: 12vh
+	left: -5vw
+	// @include transition()
+	@include prefix(transform-origin, 33.4% 52.5%)
+	@include animation(rolling, 8s)
+
+.caption
+	text-align: center
+	position: absolute
+	bottom: 2vh
+	left: 30vw
+	img
+		height: 70px
+	span
+		font-size: $font-md
+		display: block
+		color: $color-secondary
+
+.container
+	.inner
+		width: 52vw
+		margin-left: 48vw
+		text-align: center
+
+.heading
+	background: #fff
+	font-size: $font-lg
+	padding: 12px 0
+	line-height: 1
+	.inner span
+		display: inline-block
+		vertical-align: middle
+	.switcher
+		height: 30px
+		width: auto
+		margin: 0 30px
+		img
+			height: 100%
+			width: auto
+
+.content
+	padding-top: 8vh
+	span
+		color: $color-secondary
+	h3
+		font-size: $font-md
+		margin: 0
+	p
+		margin: 0
+	.star
+		letter-spacing: 1px
+		line-height: 1
+		&.lg
+			font-size: 20px
+			margin-top: 5vh
+			margin-bottom: 0.8vh
+		&.sm
+			font-size: 15px
+			margin-top: 6vh
+	.contact
+		margin-top: 7vh
